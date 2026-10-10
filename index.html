@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WAM Defence: Survive the Semester</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header id="hud">
+      <h1>WAM Defence</h1>
+      <div class="hud-item" id="hud-wam" title="Your WAM. If it reaches 0 you withdraw from the unit.">
+        <span class="hud-label">WAM</span>
+        <div class="bar" role="progressbar" aria-label="WAM" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+          <div id="wam-fill"></div>
+        </div>
+        <span id="wam-val">100</span>
+      </div>
+      <div class="hud-item" id="hud-sp" title="Study Points: spend them on towers.">
+        <span class="hud-label">SP</span> <span id="sp-val">150</span>
+      </div>
+      <div class="hud-item" id="hud-week">
+        <span id="week-label">Week 1</span>
+        <span id="phase-label" class="pill">Prep</span>
+      </div>
+      <div id="week-track" aria-label="Semester progress"></div>
+      <div class="hud-buttons">
+        <button id="btn-pause" type="button" title="Pause (P)">Pause</button>
+        <button id="btn-speed" type="button" title="Change speed (F)">Speed 1x</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="stage">
+        <canvas id="game" aria-label="Game map"></canvas>
+        <div id="toast" role="status" aria-live="polite"></div>
+        <div id="pause-badge" class="hidden">Paused</div>
+      </div>
+
+      <aside id="side">
+        <section>
+          <h2>Build</h2>
+          <div id="tower-buttons"></div>
+        </section>
+        <section>
+          <h2>Info</h2>
+          <div id="info-body"></div>
+        </section>
+        <section>
+          <h2 id="wave-title">This week</h2>
+          <div id="wave-body"></div>
+          <button id="btn-start" type="button" class="primary">Start Week 1</button>
+        </section>
+        <section id="demo-panel" class="hidden"></section>
+      </aside>
+    </main>
+
+    <div id="overlay" class="hidden">
+      <div id="overlay-card" role="dialog" aria-modal="true"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/demo.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>
